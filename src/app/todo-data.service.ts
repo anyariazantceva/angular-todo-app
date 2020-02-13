@@ -11,7 +11,7 @@ export class TodoDataService {
   doneCount;
   todoCount;
   constructor() { }
-// Simulate POST /todos
+
   addTodo(todo: Todo): TodoDataService {
     if (todo.title === '') {
       alert('You should enter a value');
@@ -26,7 +26,6 @@ export class TodoDataService {
 
   }
 
-  // Simulate DELETE /todos/:id
   deleteTodoById(id: number): TodoDataService {
     this.todos = this.todos
       .filter(todo => todo.id !== id);
@@ -55,7 +54,6 @@ export class TodoDataService {
       .pop();
   }
 
-  // Toggle todo complete
   toggleTodoComplete(todo: Todo) {
     let updatedTodo = this.updateTodoById(todo.id, {
       complete: !todo.complete

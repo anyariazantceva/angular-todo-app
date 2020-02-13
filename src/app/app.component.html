@@ -1,19 +1,22 @@
 <section class="todos">
   <div class="todos__header">
     <h1 class="todos__title">Todo App</h1>
-    <input class="todos__control new-todo" [(ngModel)]="newTodo.title" placeholder="Add a new todo..." type="text" autofocus="" (keyup.enter)="addTodo()" >
+    <input class="todos__control new-todo" [(ngModel)]="newTodo.title" placeholder="Add a new todo..." type="text" autofocus="" (keyup.enter)="addTodo()" required>
     <button mat-raised-button color="primary" class="todos__action" (click)="addTodo()">Add Todo</button>
   </div>
   <div class="todos__list list" *ngIf="todos.length > 0">
     <ul class="list__container">
       <li class="list__item" *ngFor="let todo of todos" [class.completed]="todo.complete">
-        <div class="list__complete">
-          <input class="toggle" type="checkbox" (change)="toggleTodoComplete(todo)" [checked]="todo.complete">
-        </div>
-        <div class="list__item-title">{{ todo.title }}</div>
-        <div class="list__item-action">
-          <button class="destroy list__item-btn" (click)="removeTodo(todo)">Delete</button>
-        </div>
+        <mat-card class="list__card">
+          <mat-card-content class="list__complete">
+            <mat-checkbox class="example-margin" (change)="toggleTodoComplete(todo)" [checked]="todo.complete"></mat-checkbox>
+          </mat-card-content>
+          <mat-card-title class="list__item-title">{{ todo.title }}</mat-card-title>
+          <mat-card-actions class="list__item-action">
+            <button mat-raised-button color="warn" class="destroy list__item-btn" (click)="removeTodo(todo)">Delete</button>
+          </mat-card-actions>
+        </mat-card>
+
       </li>
     </ul>
   </div>
