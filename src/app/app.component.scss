@@ -4,19 +4,23 @@
   box-sizing: border-box;
 }
 
-
-
 .todos {
   max-width: 50rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
+  padding: 2rem;
   &__title {
     font-size: 2.2rem;
     font-weight: bold;
     text-align: center;
     margin-bottom: 1rem;
+  }
+  &__total {
+    text-align: center;
+    &-title {
+      font-weight: bold;
+    }
   }
   &__header {
     &-action {
@@ -67,13 +71,21 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    flex-direction: column;
-    &-row {
-      display: flex;
-      justify-content: space-between;
-    }
+    align-items: center;
   }
   &__complete {
     margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .todos__header {
+    &-control {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    &-btn {
+      width: 100%;
+    }
   }
 }
