@@ -13,11 +13,17 @@ export class TodoDataService {
   constructor() { }
 // Simulate POST /todos
   addTodo(todo: Todo): TodoDataService {
-    if (!todo.id) {
-      todo.id = ++this.lastId;
+    if (todo.title === '') {
+      alert('You should enter a value');
+    } else {
+      if (!todo.id) {
+        todo.id = ++this.lastId;
+      }
+      this.todos.push(todo);
+      console.log(this.todos);
+      return this;
     }
-    this.todos.push(todo);
-    return this;
+
   }
 
   // Simulate DELETE /todos/:id

@@ -1,8 +1,8 @@
 <section class="todos">
   <div class="todos__header">
     <h1 class="todos__title">Todo App</h1>
-    <input class="todos__control new-todo" placeholder="Add a new todo..." type="text" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
-    <button class="todos__action" (click)="addTodo()">Add Todo</button>
+    <input class="todos__control new-todo" [(ngModel)]="newTodo.title" placeholder="Add a new todo..." type="text" autofocus="" (keyup.enter)="addTodo()" >
+    <button mat-raised-button color="primary" class="todos__action" (click)="addTodo()">Add Todo</button>
   </div>
   <div class="todos__list list" *ngIf="todos.length > 0">
     <ul class="list__container">

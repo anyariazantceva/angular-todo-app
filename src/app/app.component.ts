@@ -31,11 +31,9 @@ export class AppComponent {
     return this.todoDataService.getAllTodos();
   }
   getCompletedTodos (todos) {
-    console.log(this.todoDataService.getCompletedTodos(todos));
     return this.todoDataService.getCompletedTodos(todos);
   }
   getNotCompletedTodos (todos) {
-    console.log(this.todoDataService.getNotCompletedTodos(todos));
     return this.todoDataService.getNotCompletedTodos(todos);
   }
 
