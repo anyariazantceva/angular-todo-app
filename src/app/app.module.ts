@@ -7,10 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule, MatCardTitle, MatCardActions, MatCardContent } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodoListHeaderComponent,
+    TodoListComponent,
+    TodoListItemComponent
   ],
   imports: [
     BrowserModule,

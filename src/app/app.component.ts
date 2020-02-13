@@ -10,20 +10,18 @@ import { TodoDataService } from './todo-data.service';
 })
 export class AppComponent {
   newTodo: Todo = new Todo();
-  term: string = '';
   constructor(private todoDataService: TodoDataService) {
   }
 
-  toggleTodoComplete(todo) {
+  onToggleTodoComplete(todo: Todo) {
     this.todoDataService.toggleTodoComplete(todo);
   }
 
-  addTodo() {
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo();
+  onAddTodo(todo: Todo) {
+    this.todoDataService.addTodo(todo);
   }
 
-  removeTodo(todo) {
+  onRemoveTodo(todo: Todo) {
     this.todoDataService.deleteTodoById(todo.id);
   }
 

@@ -10,82 +10,18 @@
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  &__title {
-    font-size: 2.2rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
   &__total {
+    margin-top: 2rem;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     &-title {
       font-weight: bold;
     }
   }
-  &__header {
-    &-action {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    &-control {
-      width: 75%;
-      display: block;
-      padding: .5rem;
-    }
-    &-btn {
-      width: 20%;
-    }
-  }
+
 }
 
-.done .list__card {
-  text-decoration: line-through;
-  font-weight: bold;
-}
 
-.mat-card>.mat-card-actions:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
 
-.list {
-  width: 100%;
-  margin-top: 2rem;
-  &__container {
-    list-style: none;
-  }
-  &__item {
-    margin-bottom: 1rem;
-    transition: text-decoration 1s;
-    &-title {
-      margin: 0;
-      width: 80%;
-    }
-    &-action {
-      margin: 0;
-    }
-  }
-  &__card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &__complete {
-    margin-bottom: 0;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .todos__header {
-    &-control {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-    &-btn {
-      width: 100%;
-    }
-  }
-}
