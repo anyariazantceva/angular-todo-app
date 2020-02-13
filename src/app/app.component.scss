@@ -1,0 +1,79 @@
+*,*::before,*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+.todos {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  &__title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  &__header {
+    &-action {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    &-control {
+      width: 75%;
+      display: block;
+      padding: .5rem;
+    }
+    &-btn {
+      width: 20%;
+    }
+  }
+}
+
+.completed .list__card {
+  text-decoration: line-through;
+  font-weight: bold;
+}
+
+.mat-card>.mat-card-actions:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.list {
+  width: 100%;
+  margin-top: 2rem;
+  &__container {
+    list-style: none;
+  }
+  &__item {
+    margin-bottom: 1rem;
+    transition: text-decoration 1s;
+    &-title {
+      margin: 0;
+      width: 80%;
+    }
+    &-action {
+      margin: 0;
+    }
+  }
+  &__card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+    &-row {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__complete {
+    margin-bottom: 0;
+  }
+}
