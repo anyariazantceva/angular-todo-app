@@ -13,11 +13,11 @@
   </div>
   <div class="todos__list list" *ngIf="todos.length > 0">
     <ul class="list__container">
-      <li class="list__item" *ngFor="let todo of todos" [class.completed]="todo.complete">
+      <li class="list__item" *ngFor="let todo of todos" [class.done]="todo.done">
         <mat-card class="list__card">
             <mat-card-title class="list__item-title">{{ todo.id }}. {{ todo.title }}</mat-card-title>
             <mat-card-content class="list__complete">
-              <mat-checkbox class="example-margin" (change)="toggleTodoComplete(todo)" [checked]="todo.complete">Done</mat-checkbox>
+              <mat-checkbox class="example-margin" (change)="toggleTodoComplete(todo)" [checked]="todo.complete"></mat-checkbox>
             </mat-card-content>
             <mat-card-actions class="list__item-action">
             <button mat-raised-button color="warn" class="destroy list__item-btn" (click)="removeTodo(todo)">Delete</button>

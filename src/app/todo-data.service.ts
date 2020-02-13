@@ -13,16 +13,12 @@ export class TodoDataService {
   constructor() { }
 
   addTodo(todo: Todo): TodoDataService {
-    if (todo.title === '') {
-      alert('You should enter a value');
-    } else {
       if (!todo.id) {
         todo.id = ++this.lastId;
       }
       this.todos.push(todo);
-      console.log(this.todos);
       return this;
-    }
+
 
   }
 
@@ -56,16 +52,25 @@ export class TodoDataService {
 
   toggleTodoComplete(todo: Todo) {
     let updatedTodo = this.updateTodoById(todo.id, {
-      complete: !todo.complete
+      done: !todo.done
     });
     return updatedTodo;
   }
   getCompletedTodos (todos) {
     return this.doneCount = todos
-      .filter((el) => el.complete).length;
+      .filter((el) => el.done).length;
   }
   getNotCompletedTodos (todos) {
     return this.todoCount = todos.length - this.doneCount;
   }
+  search(items, term) {
+    if (term.length === '') {
+      return items;
+    }
+    return items.filter((item) => {
+      return item.title.toLowerCase().includes(term.toLowerCase());
+    });
+  };
+
 
 }
