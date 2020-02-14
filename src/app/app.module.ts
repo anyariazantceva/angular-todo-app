@@ -10,7 +10,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
-import { ControlErrorComponent } from './control-error/control-error.component';
 import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
@@ -18,8 +17,7 @@ import { MatInputModule } from '@angular/material/input';
     AppComponent,
     TodoListHeaderComponent,
     TodoListComponent,
-    TodoListItemComponent,
-    ControlErrorComponent
+    TodoListItemComponent
   ],
   imports: [
     BrowserModule,
