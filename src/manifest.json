@@ -55,13 +55,18 @@
       "type": "image/png"
     },
     {
-      "src": "/src/assets/icons/angular-144-272339.png",
-      "sizes": "144x144",
+      "src": "/src/assets/icons/angular-152-272339.png",
+      "sizes": "152x152",
       "type": "image/png"
     },
     {
-      "src": "/src/assets/icons/angular-152-272339.png",
-      "sizes": "152x152",
+      "src": "/src/assets/icons/mstile-150x150.png",
+      "sizes": "270x270",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-512-272339.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
