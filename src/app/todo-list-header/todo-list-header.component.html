@@ -1,10 +1,7 @@
 <div class="todos__header">
   <h1 class="todos__title">Todo App</h1>
     <form class="todos__header-action form" (submit)="addTodo()">
-        <input ng-required="Please enter the value" class="todos__header-control new-todo" [(ngModel)]="newTodo.title" [ngModelOptions]="{standalone: true}" placeholder="Add a new todo..." type="text" autofocus="" required>
+        <input ng-required="Please enter the value" class="todos__header-control new-todo" [(ngModel)]="newTodo.title" [ngModelOptions]="{standalone: true}" placeholder="Add a new todo" type="text" autofocus="" required>
         <button mat-raised-button color="primary" class="todos__header-btn" (submit)="addTodo()">Add Todo</button>
     </form>
-  <div *ngIf="newTodo.title === ''"
-       class="alert alert-danger"> Please enter the value...
-  </div>
 </div>
