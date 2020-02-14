@@ -1,0 +1,68 @@
+{
+  "short_name": "TodoApp",
+  "name": "Angular todo application",
+  "start_url": "/",
+
+  "theme_color": "#f9f9f9",
+  "background_color": "#ffffff",
+
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/src/assets/icons/angular-16-272339.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-24-272339.png",
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-32-272339.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-48-272339.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-57-272339.png",
+      "sizes": "57x57",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-64-272339.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-72-272339.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-114-272339.png",
+      "sizes": "114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-120-272339.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-144-272339.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/icons/angular-152-272339.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }
+  ]
+}
