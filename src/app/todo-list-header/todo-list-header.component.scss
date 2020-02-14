@@ -1,0 +1,52 @@
+.todos {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  &__title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  &__total {
+    text-align: center;
+    &-title {
+      font-weight: bold;
+    }
+  }
+  &__header {
+    &-action {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    &-control {
+      width: 75%;
+      display: block;
+      padding: .5rem;
+    }
+    &-btn {
+      width: 20%;
+    }
+  }
+}
+
+.alert-danger {
+  margin-top: .5rem;
+  color: #f43d21;
+}
+
+@media screen and (max-width: 500px) {
+  .todos__header {
+    &-control {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    &-btn {
+      width: 100%;
+    }
+  }
+}

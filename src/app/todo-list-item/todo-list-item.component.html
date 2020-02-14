@@ -1,0 +1,11 @@
+<mat-card class="list__card">
+  <mat-card-title class="list__item-title">
+    {{ todo.title }}
+  </mat-card-title>
+  <mat-card-content class="list__complete">
+    <mat-checkbox class="example-margin" (change)="toggleTodoComplete(todo)" [checked]="todo.done"></mat-checkbox>
+  </mat-card-content>
+  <mat-card-actions class="list__item-action">
+    <button mat-raised-button color="warn" class="destroy list__item-btn" (click)="removeTodo(todo)">Delete</button>
+  </mat-card-actions>
+</mat-card>

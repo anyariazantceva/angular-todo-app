@@ -13,19 +13,24 @@ export class TodoDataService {
   constructor() { }
 
   addTodo(todo: Todo): TodoDataService {
+    if (todo.title === '') {
+      alert('Please enter the value!');
+    } else {
       if (!todo.id) {
-        todo.id = ++this.lastId;
+        todo.id = this.lastId++;
       }
       this.todos.push(todo);
       return this;
-
+    }
 
   }
 
-  deleteTodoById(id: number): TodoDataService {
-    this.todos = this.todos
-      .filter(todo => todo.id !== id);
-    return this;
+  deleteItem = (id) => {
+      const idx = this.todos.findIndex((el) => el.id === id);
+      const newArray = [
+        ...this.todos.slice(0, idx), ...this.todos.slice(idx + 1)
+      ];
+      return this.todos = newArray;
   }
 
   // Simulate PUT /todos/:id
