@@ -8,13 +8,14 @@ import { Todo } from './todo';
 export class TodoDataService {
   lastId: number = 0;
   todos: Todo[] = [];
+  className: '';
   doneCount;
   todoCount;
   constructor() { }
 
   addTodo(todo: Todo): TodoDataService {
     if (todo.title === '') {
-      alert('Please enter the value!');
+      console.log('Show message');
     } else {
       if (!todo.id) {
         todo.id = this.lastId++;

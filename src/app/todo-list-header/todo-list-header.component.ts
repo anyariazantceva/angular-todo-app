@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../todo';
+import set = Reflect.set;
 
 @Component({
   selector: 'app-todo-list-header',
@@ -9,14 +10,24 @@ import { Todo } from '../todo';
 
 export class TodoListHeaderComponent {
   newTodo: Todo = new Todo();
+  className: string = "";
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
   constructor() { }
 
   addTodo() {
-    this.add.emit(this.newTodo);
-    this.newTodo = new Todo();
+    if (this.newTodo.title === '') {
+       this.className = "error-active";
+        setTimeout(() => {
+        this.className = "";
+      },2000);
+    } else {
+      this.add.emit(this.newTodo);
+      this.newTodo = new Todo();
+    }
   }
+
+
 
 
 }

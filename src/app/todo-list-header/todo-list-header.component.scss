@@ -32,6 +32,18 @@
       width: 20%;
     }
   }
+  &__error {
+    background-color: #ff4141;
+    padding: 1rem;
+    color: #ffffff;
+    margin-top: 1rem;
+    display: none;
+  }
+
+}
+
+.error-active {
+  display: block;
 }
 
 .alert-danger {
