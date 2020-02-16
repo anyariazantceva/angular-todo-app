@@ -1,9 +1,11 @@
-<div class="todos__list list" *ngIf="todos.length > 0">
-  <ul class="list__container">
-    <li class="list__item" *ngFor="let todo of todos" [class.done]="todo.done">
-      <app-todo-list-item [todo]="todo"
-                          (toggleComplete)="onToggleTodoComplete($event)"
-                          (remove)="onRemoveTodo($event)"></app-todo-list-item>
+<div class="todos__list list" *ngIf="items?.length > 0;else noItems">
+  <ul class="list__container" *ngFor="let item of items">
+    <li class="list__item">
+        <app-todo-list-item [item]="item"></app-todo-list-item>
     </li>
   </ul>
 </div>
+
+<ng-template #noItems>
+  <h5>There are no items to list</h5>
+</ng-template>

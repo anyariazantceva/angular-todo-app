@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../todo';
-import set = Reflect.set;
+import { ApiService } from '../services/api.service';
+import { Item } from '../models/item';
 
 @Component({
   selector: 'app-todo-list-header',
@@ -9,24 +10,26 @@ import set = Reflect.set;
 })
 
 export class TodoListHeaderComponent {
-  newTodo: Todo = new Todo();
+  item: Item = {
+    title: '',
+  }
+
   className: string = "";
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
-  constructor() { }
+  constructor(private api: ApiService) { }
 
-  addTodo() {
-    if (this.newTodo.title === '') {
-       this.className = "error-active";
-        setTimeout(() => {
-        this.className = "";
-      },2000);
-    } else {
-      this.add.emit(this.newTodo);
-      this.newTodo = new Todo();
+  onSubmit() {
+    if (this.item.title === '') {
+      this.className = 'error-active';
+      setTimeout(() => {
+        this.className = '';
+      }, 2000);
+  } else {
+      this.api.addTodo(this.item);
+      this.item.title = '';
     }
   }
-
 
 
 

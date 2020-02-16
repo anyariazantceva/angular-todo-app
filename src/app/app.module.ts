@@ -12,37 +12,21 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { MatInputModule } from '@angular/material/input';
 import { AngularFireModule } from '@angular/fire/';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { LoginComponent } from './admin/login/login.component';
-import { RegisterComponent } from './admin/register/register.component';
-import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './admin/verify-email/verify-email.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyBmhtu2HUYh4lSRGjnwJCfVOvTluZenets',
-  authDomain: 'todo-app-86202.firebaseapp.com',
-  databaseURL: 'https://todo-app-86202.firebaseio.com',
-  projectId: 'todo-app-86202',
-  storageBucket: 'todo-app-86202.appspot.com',
-  messagingSenderId: '776426215499',
-  appId: '1:776426215499:web:79843d1056200b0ca015ce',
-  measurementId: 'G-NKJWCYPKBV'
-};
+import { ApiService} from './services/api.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListHeaderComponent,
     TodoListComponent,
-    TodoListItemComponent,
-    LoginComponent,
-    RegisterComponent,
-    ForgotPasswordComponent,
-    VerifyEmailComponent
+    TodoListItemComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
+    AngularFirestoreModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -52,7 +36,7 @@ const firebaseConfig = {
     MatCheckboxModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

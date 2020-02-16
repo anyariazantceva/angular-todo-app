@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../todo';
+import { Item } from '../models/item';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-todo-list-item',
@@ -8,22 +9,22 @@ import { Todo } from '../todo';
 })
 export class TodoListItemComponent {
 
-  @Input() todo: Todo;
+  @Input() item: Item;
 
   @Output()
-  remove: EventEmitter<Todo> = new EventEmitter();
+  remove: EventEmitter<Item> = new EventEmitter();
 
   @Output()
-  toggleComplete: EventEmitter<Todo> = new EventEmitter();
+  toggleComplete: EventEmitter<Item> = new EventEmitter();
 
-  constructor() {
+  constructor(private api: ApiService) {
   }
 
-  toggleTodoComplete(todo: Todo) {
-    this.toggleComplete.emit(todo);
+  toggleTodoComplete(item: Item) {
+    this.toggleComplete.emit(item);
   }
 
-  removeTodo(todo: Todo) {
-    this.remove.emit(todo);
+  removeTodo(item: Item) {
+    this.api.deleteTodo(item.id);
   }
 }
