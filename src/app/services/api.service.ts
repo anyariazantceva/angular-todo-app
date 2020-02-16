@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
   itemsCollection: AngularFirestoreCollection<Item>;
   items: Observable<Item[]>;
+  itemDoc: AngularFirestoreDocument<Item>;
   constructor(public afs: AngularFirestore) {
 
   }
@@ -23,12 +24,13 @@ export class ApiService {
   }
 
   updateTodo(item: Item) {
-    delete item.id;
-    this.afs.doc('items/' + item.id).update(item);
+    this.itemDoc = this.afs.doc(`items/${item.id}`);
+    this.itemDoc.update(item);
   }
 
-  deleteTodo(itemId: string) {
-    this.afs.doc('items/' + itemId).delete();
+  deleteTodo(item: Item) {
+    this.itemDoc = this.afs.doc(`items/${item.id}`);
+    this.itemDoc.delete();
   }
 
 }

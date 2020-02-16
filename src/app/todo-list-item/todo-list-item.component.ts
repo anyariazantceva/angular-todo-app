@@ -9,22 +9,5 @@ import { ApiService } from '../services/api.service';
 })
 export class TodoListItemComponent {
 
-  @Input() item: Item;
 
-  @Output()
-  remove: EventEmitter<Item> = new EventEmitter();
-
-  @Output()
-  toggleComplete: EventEmitter<Item> = new EventEmitter();
-
-  constructor(private api: ApiService) {
-  }
-
-  toggleTodoComplete(item: Item) {
-    this.toggleComplete.emit(item);
-  }
-
-  removeTodo(item: Item) {
-    this.api.deleteTodo(item.id);
-  }
 }

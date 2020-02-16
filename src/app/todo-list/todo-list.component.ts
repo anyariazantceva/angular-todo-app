@@ -9,7 +9,9 @@ import { Item } from '../models/item';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  @Input() items: Item[];
+  items: Item[];
+  editState: boolean = false;
+  itemToEdit: Item;
   constructor(private api: ApiService) {
 
   }
@@ -28,12 +30,18 @@ export class TodoListComponent implements OnInit {
     this.api.addTodo(item);
   }
 
-  update(item: Item) {
-    this.api.updateTodo(item);
+  removeTodo(item: Item) {
+    this.api.deleteTodo(item);
   }
-
-  delete(id: string) {
-    this.api.deleteTodo(id);
+  updateTodo(item: Item) {
+    this.editState = true;
+    this.itemToEdit = item;
+    this.api.updateTodo(item);
+    this.clearState();
+  }
+  clearState() {
+    this.editState = false;
+    this.itemToEdit = null;
   }
 
 }
