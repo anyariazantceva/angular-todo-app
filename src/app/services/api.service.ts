@@ -11,6 +11,8 @@ export class ApiService {
   itemsCollection: AngularFirestoreCollection<Item>;
   items: Observable<Item[]>;
   itemDoc: AngularFirestoreDocument<Item>;
+  doneCount;
+  todoCount;
   constructor(public afs: AngularFirestore) {
 
   }
@@ -31,6 +33,13 @@ export class ApiService {
   deleteTodo(item: Item) {
     this.itemDoc = this.afs.doc(`items/${item.id}`);
     this.itemDoc.delete();
+  }
+  getCompletedTodos(items) {
+    return this.doneCount = items
+      .filter((el) => el.done).length;
+  }
+  getNotCompletedTodos(items) {
+    return this.todoCount = items.length - this.doneCount;
   }
 
 }

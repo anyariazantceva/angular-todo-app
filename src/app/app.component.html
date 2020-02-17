@@ -1,9 +1,8 @@
 <section class="todos">
-  <app-todo-list-header (add)="onAddTodo($event)"></app-todo-list-header>
-  <div class="todos__total" *ngIf="todos.length > 0">
-    <div class="todo-count"><span class="todos__total-title">Total: {{todos.length}}</span> {{todos.length == 1 ? 'todo' : 'todos'}}</div>
-    <div class="todo-completed"><span class="todos__total-title">Completed: {{ getCompletedTodos(todos) }}</span> {{todos.length == 1 ? 'todo' : 'todos'}}</div>
-    <div class="todo-tobedone"><span class="todos__total-title">To be done: {{ getNotCompletedTodos(todos) }}</span> {{todos.length == 1 ? 'todo' : 'todos'}}</div>
+  <app-todo-list-header></app-todo-list-header>
+  <div class="todos__total" *ngIf="items.length > 0">
+    <div class="todo-count"><span class="todos__total-title">Total: {{items.length}} </span> {{items.length == 1 ? 'todo' : 'todos'}}</div>
   </div>
   <app-todo-list></app-todo-list>
 </section>
+<router-outlet></router-outlet>

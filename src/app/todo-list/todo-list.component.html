@@ -5,21 +5,20 @@
         <mat-card-title class="list__item-title">
           {{ item.title }}
         </mat-card-title>
-        <mat-card-content class="list__complete">
-          <mat-checkbox class="example-margin"></mat-checkbox>
-        </mat-card-content>
         <mat-card-actions class="list__item-action">
-          <button mat-raised-button color="warn" class="destroy list__item-btn" (click)="removeTodo(item)">Delete</button>
-          <button mat-raised-button class="edit list__item-btn" (click)="updateTodo(item)">Edit</button>
+          <button mat-raised-button color="warn" class="destroy list__item-btn" (click)="removeTodo($event, item)">Delete</button>
+          <button mat-raised-button class="edit list__item-btn" (click)="editTodo($event, item)">Edit</button>
           <button *ngIf="editState && itemToEdit.id == item.id" mat-raised-button class="edit list__item-btn" (click)="clearState()">X</button>
 
         </mat-card-actions>
 
-        <div *ngIf="editState && itemToEdit.id == item.id">
-          <form (ngSubmit)="updateTodo(item)">
-            <input name="title" class="todos__header-control new-todo" [(ngModel)]="item.title" [ngModelOptions]="{standalone: true}" placeholder="Edit a new todo" type="text" autofocus="" required>
-            <button mat-raised-button color="primary" class="todos__header-btn">Edit Todo</button>
-            <button mat-raised-button color="primary" class="destroy todos__header-btn" (click)="removeTodo(item)">Delete Todo</button>
+        <div class="list__item-edit" *ngIf="editState && itemToEdit.id == item.id">
+          <form class="list__item-form" (ngSubmit)="updateTodo(item)">
+            <input name="title" class="todos__header-control list__item-form-control" [(ngModel)]="item.title" [ngModelOptions]="{standalone: true}" placeholder="Edit a new todo" type="text" autofocus="" required>
+            <div class="list__item-form--action">
+              <button mat-raised-button color="primary" class="todos__header-btn list__item-btn">Edit Todo</button>
+              <button mat-raised-button color="primary" class="destroy todos__header-btn list__item-btn" (click)="removeTodo($event, item)">Delete Todo</button>
+            </div>
           </form>
         </div>
 

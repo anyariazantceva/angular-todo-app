@@ -1,38 +1,23 @@
 import { Component } from '@angular/core';
-import {Todo} from './todo';
-import { TodoDataService } from './todo-data.service';
+import { ApiService} from './services/api.service';
+import {Item} from './models/item';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [TodoDataService]
+  providers: [ApiService]
 })
 export class AppComponent {
-  newTodo: Todo = new Todo();
-  constructor(private todoDataService: TodoDataService) {
-  }
-
-  onToggleTodoComplete(todo: Todo) {
-    this.todoDataService.toggleTodoComplete(todo);
-  }
-
-  onAddTodo(todo: Todo) {
-    this.todoDataService.addTodo(todo);
-  }
-
-  onRemoveTodo(todo: Todo) {
-    this.todoDataService.deleteItem(todo.id);
-  }
-
-  get todos() {
-    return this.todoDataService.getAllTodos();
-  }
-  getCompletedTodos (todos) {
-    return this.todoDataService.getCompletedTodos(todos);
-  }
-  getNotCompletedTodos (todos) {
-    return this.todoDataService.getNotCompletedTodos(todos);
+  items: Item[];
+  constructor(private api: ApiService) {
+    this.api.getAllTodos().subscribe(changes => {
+      this.items = changes.map(e => {
+        const data = e.payload.doc.data() as Item;
+        data.id = e.payload.doc.id;
+        return data;
+      });
+    });
   }
 
 }

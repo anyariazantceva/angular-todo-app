@@ -16,6 +16,38 @@
   &__item {
     margin-bottom: 1rem;
     transition: text-decoration 1s;
+    &-title {
+      margin: 0;
+      width: 80%;
+    }
+    &-action {
+      margin: 0;
+    }
+    &-edit {
+      width: 100%;
+    }
+    &-form {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-btn {
+      margin-right: 1rem;
+    }
+    &-form-control {
+      padding: .5rem;
+      width: 50%;
+    }
   }
+  &__card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
 }
 
+.mat-card>.mat-card-actions:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}

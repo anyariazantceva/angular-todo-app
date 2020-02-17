@@ -9,20 +9,18 @@ import { MatCardModule, MatCardTitle, MatCardActions, MatCardContent } from '@an
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { MatInputModule } from '@angular/material/input';
 import { AngularFireModule } from '@angular/fire/';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
-
 import { ApiService} from './services/api.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListHeaderComponent,
-    TodoListComponent,
-    TodoListItemComponent
+    TodoListComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'angularfs'),

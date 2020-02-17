@@ -1,5 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Todo } from '../todo';
+import {Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Item } from '../models/item';
 
@@ -29,16 +28,21 @@ export class TodoListComponent implements OnInit {
   create(item: Item) {
     this.api.addTodo(item);
   }
-
-  removeTodo(item: Item) {
+  removeTodo(event, item: Item) {
+    this.clearState();
     this.api.deleteTodo(item);
   }
-  updateTodo(item: Item) {
+
+  editTodo(event, item: Item) {
     this.editState = true;
     this.itemToEdit = item;
+  }
+
+  updateTodo(item: Item) {
     this.api.updateTodo(item);
     this.clearState();
   }
+
   clearState() {
     this.editState = false;
     this.itemToEdit = null;

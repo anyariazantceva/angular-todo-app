@@ -1,5 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../todo';
+import { Component, Output} from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Item } from '../models/item';
 
@@ -12,11 +11,9 @@ import { Item } from '../models/item';
 export class TodoListHeaderComponent {
   item: Item = {
     title: '',
-  }
+  };
 
-  className: string = "";
-  @Output()
-  add: EventEmitter<Todo> = new EventEmitter();
+  className: string = '';
   constructor(private api: ApiService) { }
 
   onSubmit() {
